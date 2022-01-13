@@ -100,13 +100,13 @@ def count_score(count, turn):
                 print_board(make_board)
                 print("\nGame Over.\n")                
                 print(" **** " +turn + " won. ****")
-                replay
+                replay()
                 return
             elif make_board['1'] == make_board['5'] == make_board['9'] != ' ': # diagonal
                 print_board(make_board)
                 print("\nGame Over.\n")                
                 print(" **** " +turn + " won. ****")
-                replay
+                replay()
                 return 
 
 if __name__ == "__main__":
