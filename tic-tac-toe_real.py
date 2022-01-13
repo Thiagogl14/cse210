@@ -37,7 +37,7 @@ def main():
             continue
         
         count_score(count, turn)
-
+        
         # If neither X nor O wins and the board is full, we'll declare the result as 'tie'.
         if count == 9:
             print("\nGame Over.\n")                
@@ -48,7 +48,15 @@ def main():
             turn = 'O'
         else:
             turn = 'X' 
-    
+
+def replay():
+    playAgain = input("Do you want to play again (y/n) ? ")
+    while playAgain.lower() == 'y':
+        for key in board_keys:
+            make_board[key] = " "
+    if playAgain.lower() == 'n':
+        return False
+
 def count_score(count, turn):
 
         if count >= 5:
@@ -56,35 +64,50 @@ def count_score(count, turn):
                 print_board(make_board)
                 print("\nGame Over.\n")                
                 print(" **** " +turn + " won. ****")
+                replay()
+                return
             elif make_board['4'] == make_board['5'] == make_board['6'] != ' ': # across the middle
                 print_board(make_board)
                 print("\nGame Over.\n")                
                 print(" **** " +turn + " won. ****")
+                replay()
+                return
             elif make_board['1'] == make_board['2'] == make_board['3'] != ' ': # across the bottom
                 print_board(make_board)
                 print("\nGame Over.\n")                
                 print(" **** " +turn + " won. ****")
+                replay()
+                return
             elif make_board['1'] == make_board['4'] == make_board['7'] != ' ': # down the left side
                 print_board(make_board)
                 print("\nGame Over.\n")                
                 print(" **** " +turn + " won. ****")
+                replay()
+                return
             elif make_board['2'] == make_board['5'] == make_board['8'] != ' ': # down the middle
                 print_board(make_board())
                 print("\nGame Over.\n")                
                 print(" **** " +turn + " won. ****")
+                replay()
+                return
             elif make_board['3'] == make_board['6'] == make_board['9'] != ' ': # down the right side
                 print_board(make_board)
                 print("\nGame Over.\n")                
                 print(" **** " +turn + " won. ****")
+                replay()
+                return 
             elif make_board['7'] == make_board['5'] == make_board['3'] != ' ': # diagonal
                 print_board(make_board)
                 print("\nGame Over.\n")                
                 print(" **** " +turn + " won. ****")
+                replay
+                return
             elif make_board['1'] == make_board['5'] == make_board['9'] != ' ': # diagonal
                 print_board(make_board)
                 print("\nGame Over.\n")                
                 print(" **** " +turn + " won. ****")
-  
+                replay
+                return 
 
 if __name__ == "__main__":
     main()
